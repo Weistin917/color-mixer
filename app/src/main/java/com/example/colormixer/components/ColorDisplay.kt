@@ -13,12 +13,18 @@ import androidx.compose.ui.unit.dp
 import com.example.colormixer.R
 
 @Composable
-fun ColorDisplay() {
+fun ColorDisplay(
+    red:Float,
+    green:Float,
+    blue:Float
+) {
     Box (
         modifier = Modifier
             .size(250.dp)
             .clip(shape = RoundedCornerShape(20.dp))
-            .background(Color.Magenta)
+            .background(Color(
+                red, green, blue
+            ))
     ) {
         Image(
             painter = painterResource(id = R.drawable.snoopy),

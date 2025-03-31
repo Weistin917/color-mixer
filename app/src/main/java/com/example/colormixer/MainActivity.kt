@@ -53,19 +53,34 @@ fun ColorMixerScreen() {
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        ColorDisplay()
+        ColorDisplay(1f, 0f, 1f)
 
         Spacer(modifier = Modifier.height(8.dp))
         // Red slider
-        ColorSlider()
+        ColorSlider(
+            color = "Red",
+            rgbValue = 255,
+            value = 1f,
+            onSliderChange = {}
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
         // Green slider
-        ColorSlider()
+        ColorSlider(
+            color = "Green",
+            rgbValue = 0,
+            value = 0f,
+            onSliderChange = {}
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
         // Blue slider
-        ColorSlider()
+        ColorSlider(
+            color = "Blue",
+            rgbValue = 255,
+            value = 1f,
+            onSliderChange = {}
+        )
 
     }
 }

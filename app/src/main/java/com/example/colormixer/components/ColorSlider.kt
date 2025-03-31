@@ -7,21 +7,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ColorSlider() {
+fun ColorSlider(
+    color:String,
+    rgbValue: Int,
+    value:Float,
+    onSliderChange: (Float) -> Unit
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = "Color", style = MaterialTheme.typography.bodyLarge)
-        Text(text = "#Value", style = MaterialTheme.typography.bodyLarge)
+        Text(text = color, style = MaterialTheme.typography.bodyLarge)
+        Text(text = rgbValue.toString(), style = MaterialTheme.typography.bodyLarge)
     }
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Slider(
-            value = 0f,
-            onValueChange = {}
+            value = value,
+            onValueChange = {onSliderChange(it)}
         )
     }
 }
