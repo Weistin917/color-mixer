@@ -1,3 +1,4 @@
+// Color Display Box
 package com.example.colormixer.components
 
 import androidx.compose.foundation.Image
@@ -12,6 +13,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.colormixer.R
 
+/*
+ * Params:
+ * The three values of the RGB colors.
+ * */
 @Composable
 fun ColorDisplay(
     red:Float,
@@ -26,6 +31,7 @@ fun ColorDisplay(
                 red, green, blue
             ))
     ) {
+        // Snoopy image
         Image(
             painter = painterResource(id = R.drawable.snoopy),
             contentDescription = null

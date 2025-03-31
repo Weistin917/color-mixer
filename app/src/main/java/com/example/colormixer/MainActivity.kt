@@ -1,3 +1,4 @@
+// Main Activity
 package com.example.colormixer
 
 import android.os.Bundle
@@ -27,8 +28,10 @@ class MainActivity :ComponentActivity() {
     }
 }
 
+// App Screen
 @Composable
 fun ColorMixerScreen() {
+    // States: the values of the RGB colors
     var red by remember { mutableFloatStateOf(0f) }
     var green by remember { mutableFloatStateOf(0f) }
     var blue by remember { mutableFloatStateOf(0f) }
@@ -57,6 +60,7 @@ fun ColorMixerScreen() {
         }
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Display box of the mixed color: receives the three color states
         ColorDisplay(red, green, blue)
 
         Spacer(modifier = Modifier.height(8.dp))
