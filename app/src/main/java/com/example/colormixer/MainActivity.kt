@@ -21,7 +21,7 @@ class MainActivity :ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ColorMixerAppTheme {
-
+                ColorMixerScreen()
             }
         }
     }
@@ -29,6 +29,10 @@ class MainActivity :ComponentActivity() {
 
 @Composable
 fun ColorMixerScreen() {
+    var red by remember { mutableFloatStateOf(0f) }
+    var green by remember { mutableFloatStateOf(0f) }
+    var blue by remember { mutableFloatStateOf(0f) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,44 +46,44 @@ fun ColorMixerScreen() {
             Icon(
                 Icons.Filled.Favorite,
                 "Title icon",
-                tint = Color.Magenta
+                tint = Color(red, green, blue)
             )
             Text(text = "Color Mixer", style = MaterialTheme.typography.headlineMedium)
             Icon(
                 Icons.Filled.Favorite,
                 "Title icon",
-                tint = Color.Magenta
+                tint = Color(red, green, blue)
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        ColorDisplay(1f, 0f, 1f)
+        ColorDisplay(red, green, blue)
 
         Spacer(modifier = Modifier.height(8.dp))
         // Red slider
         ColorSlider(
             color = "Red",
-            rgbValue = 255,
-            value = 1f,
-            onSliderChange = {}
+            rgbValue = (red * 255).toInt(),
+            value = red,
+            onSliderChange = { value -> red = value }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
         // Green slider
         ColorSlider(
             color = "Green",
-            rgbValue = 0,
-            value = 0f,
-            onSliderChange = {}
+            rgbValue = (green * 255).toInt(),
+            value = green,
+            onSliderChange = { value -> green = value }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
         // Blue slider
         ColorSlider(
             color = "Blue",
-            rgbValue = 255,
-            value = 1f,
-            onSliderChange = {}
+            rgbValue = (blue * 255).toInt(),
+            value = blue,
+            onSliderChange = { value -> blue = value }
         )
 
     }
